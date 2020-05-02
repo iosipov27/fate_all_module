@@ -1,0 +1,30 @@
+{
+  "name": "myfate",
+  "title": "myfate",
+  "description": "The Amazing Fate Core Module for Foundry VTT",
+  "version": "0.1.0",
+  "author": "Illia Osipov",
+  "authors": [
+    {
+      "name": "",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "scripts": [],
+  "esmodules": ["myfate.js"],
+  "styles": ["myfate.css"],
+  "packs": [],
+  "languages": [],
+  "gridDistance": 1,
+  "gridUnits": "",
+  "minimumCoreVersion": "0.5.0",
+  "compatibleCoreVersion": "0.5.0",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "",
+  "readme": "",
+  "bugs": "",
+  "changelog": ""
+}
