@@ -1,0 +1,14 @@
+<section class="identity">
+	<h1>ID</h1>
+	<div class="property-container">
+		<div class="property">
+			<label class="property-label">Name</label>
+			<input class="property-input" type="text" name="name" value="{{actor.name}}">
+		</div>
+		<div class="property editor">
+			<label class="property-label">{{ localize "FATE.Sheet.Description" }}</label>
+			<div class="property-textarea" contenteditable="true" data-edit="data.details.description.value">
+				{{{data.details.description.value}}}</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,11 @@
+<section class="tab biography" data-tab="biography">
+	<div class="artwork">
+		<h1>{{ localize "FATE.Sheet.Artwork" }}</h1>
+		<img src="{{actor.img}}" data-edit="img" />
+	</div>
+
+	<div class="text">
+		<h1>{{ localize "FATE.Sheet.Biography" }}</h1>
+		{{editor content=data.details.biography.value target="data.details.biography.value" button=true owner=owner editable=editable}}
+	</div>
+</section>

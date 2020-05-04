@@ -1,0 +1,40 @@
+{
+	"FATE": {
+		"Sheet": {
+			"TabSheet": "Sheet",
+			"TabBio": "Biography",
+
+			"Description": "Description",
+			"Artwork": "Artwork",
+			"Biography": "Biography",
+
+			"Points": "Fate Points",
+			"Refresh": "Refresh",
+			"Current": "Current",
+
+			"HC": "High Concept",
+			"Trouble": "Trouble",
+			"Aspects": "Aspects",
+
+			"Stunts": "Stunts",
+			"Stress": "Stress",
+
+			"Cons": {
+				"Label": "Consequences",
+				"Mild": "Mild",
+				"Moderate": "Moderate",
+				"Severe": "Severe"
+			},
+
+			"Approaches": {
+				"Label": "Approaches",
+				"Careful": "Careful",
+				"Clever": "Clever",
+				"Flashy": "Flashy",
+				"Forceful": "Forceful",
+				"Quick": "Quick",
+				"Sneaky": "Sneaky"
+			}
+		}
+	}
+}

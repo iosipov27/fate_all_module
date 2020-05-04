@@ -1,0 +1,137 @@
+.fate {
+	a {
+		&:hover {
+			text-shadow: none;
+		}
+	}
+
+	select,
+	.property-select {
+		background: rgba(255, 255, 255, 0.75);
+		border: 1px solid #aaa;
+		border-radius: 0;
+
+		&:focus {
+			box-shadow: none;
+			outline: 2px solid black;
+		}
+	}
+
+	input[type="text"] {
+		width: 100%;
+	
+		&:focus {
+			box-shadow: none;
+			outline: 2px solid black;
+		}
+	}
+
+	.approach-select {
+		display: inline-block;
+		position: relative;
+		border: 1px solid #aaa;
+		text-align: right;
+
+		select {
+			visibility: hidden;
+			padding-right: 10px;
+		}
+
+		.selected {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: 3px 19px 3px 3px;
+			background: #efefef;
+			cursor: pointer;
+
+			&:after {
+				content: "";
+				width: 0;
+				height: 0;
+				border: 5px solid transparent;
+				border-color: black transparent transparent transparent;
+				position: absolute;
+				top: 9px;
+				right: 6px;
+			}
+
+			&:focus {
+				outline: 2px solid black;
+				outline-offset: -2px;
+			}
+
+			&.disabled {
+				color: #555;
+				outline: none;
+				cursor: default;
+
+				&:after {
+					border-top-color: #555;
+				}
+			}
+		}
+
+		.selected-hover {
+			display: none;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 999;
+			background: rgba(0, 0, 0, 0.5);
+		}
+
+		.options {
+			display: none;
+			position: absolute;
+			top: -1px;
+			right: -1px;
+			left: -1px;
+			margin: 0;
+			padding: 0 19px 0 0;
+			z-index: 998;
+			list-style-type: none;
+			background: #eee;
+			border: 1px solid #aaa;
+
+			li {
+				padding: 3px 19px 3px 3px;
+				transition: background-color 100ms;
+
+				&:hover {
+					background: #aaa;
+				}
+			}
+		}
+	}
+
+	.editor .tox-tinymce {
+		height: 100% !important;
+	}
+
+	div[contenteditable], input[type=text] {
+		box-sizing: border-box;
+		display: block;
+		height: 1.572em;
+		margin-bottom: 1px;
+		padding: 1px 3px;
+		background: rgba(255, 255, 255, 0.75);
+		border: 1px solid #aaa;
+		border-radius: 0;
+		font-family: $primary-font-family;
+		font-size: 1.02em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&:focus {
+			outline-offset: -2px;
+			outline: 2px solid black;
+		}
+	}
+}

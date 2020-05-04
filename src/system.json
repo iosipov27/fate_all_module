@@ -1,30 +1,24 @@
 {
   "name": "myfate",
-  "title": "myfate",
-  "description": "The Amazing Fate Core Module for Foundry VTT",
-  "version": "0.1.0",
-  "author": "Illia Osipov",
-  "authors": [
+  "title": "FATE",
+  "description": "An implementation of FATE Core and Accelerated for Foundry",
+  "version": "0.2.0",
+  "author": "Nick van Oosten (NickEast#1131)",
+  "scripts": [],
+  "esmodules": ["fate.js"],
+  "styles": ["fate.css"],
+  "packs": [],
+  "languages": [
     {
-      "name": "",
-      "email": "",
-      "url": ""
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
     }
   ],
-  "scripts": [],
-  "esmodules": ["myfate.js"],
-  "styles": ["myfate.css"],
-  "packs": [],
-  "languages": [],
   "gridDistance": 1,
   "gridUnits": "",
-  "minimumCoreVersion": "0.5.0",
-  "compatibleCoreVersion": "0.5.0",
-  "url": "",
-  "manifest": "",
-  "download": "",
-  "license": "",
-  "readme": "",
-  "bugs": "",
-  "changelog": ""
+  "minimumCoreVersion": "0.4.5",
+  "url": "https://gitlab.com/foundry-projects/fate",
+  "manifest": "https://gitlab.com/foundry-projects/fate/raw/master/src/system.json",
+  "download": "https://gitlab.com/foundry-projects/fate/raw/v0.2.0/package/fate-v0.2.0.zip"
 }

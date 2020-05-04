@@ -1,0 +1,136 @@
+{
+	"actor": {
+		"data": {
+			"identity": {
+				"description": {
+					"label": "Description",
+					"type": "String"
+				},
+				"refresh": {
+					"label": "Refresh",
+					"type": "Number",
+					"value": 3,
+					"min": 3
+				}
+			},
+			"aspects": {
+				"hc": {
+					"label": "High Concept",
+					"type": "String",
+					"value": ""
+				},
+				"trouble": {
+					"label": "Trouble",
+					"type": "String"
+				},
+				"extra": {
+					"label": "Aspects",
+					"type": "Array",
+					"value": {}
+				}
+			},
+			"health": {
+				"stress": {
+					"label": "Stress",
+					"type": "Array"
+				},
+				"cons": {
+					"label": "Consequences",
+					"type": "Array"
+				}
+			}
+		},
+		"core": {
+			"skills": {
+				"superb": {
+					"label": "Superb (+5)",
+					"type": "Array"
+				},
+				"great": {
+					"label": "Great (+4)",
+					"type": "Array"
+				},
+				"good": {
+					"label": "Good (+3)",
+					"type": "Array"
+				},
+				"fair": {
+					"label": "Fair (+2)",
+					"type": "Array"
+				},
+				"average": {
+					"label": "Average (+1)",
+					"type": "Array"
+				}
+			}
+		},
+		"accelerated": {
+			"approaches": {
+				"careful": {
+					"label": "Careful",
+					"type": "Number",
+					"value": 0
+				},
+				"clever": {
+					"label": "Clever",
+					"type": "Number",
+					"value": 0
+				},
+				"flashy": {
+					"label": "Flashy",
+					"type": "Number",
+					"value": 0
+				},
+				"forceful": {
+					"label": "Forceful",
+					"type": "Number",
+					"value": 0
+				},
+				"quick": {
+					"label": "Quick",
+					"type": "Number",
+					"value": 0
+				},
+				"sneaky": {
+					"label": "Sneaky",
+					"type": "Number",
+					"value": 0
+				}
+			}
+		}
+	},
+	"item": {
+		"data": {
+			"description": {
+				"label": "Description",
+				"type": "String",
+				"value": ""
+			}
+		},
+		"skill": {
+			"actions": {
+				"overcome": {
+					"label": "Overcome",
+					"type": "String",
+					"value": ""
+				},
+				"advantage": {
+					"label": "Create an Advantage",
+					"type": "String",
+					"value": ""
+				},
+				"attack": {
+					"label": "Attack",
+					"type": "String",
+					"value": ""
+				},
+				"defend": {
+					"label": "Defend",
+					"type": "String",
+					"value": ""
+				}
+			}
+		},
+		"stunt": {}
+	}
+}

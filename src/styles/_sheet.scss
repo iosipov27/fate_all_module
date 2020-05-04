@@ -1,0 +1,417 @@
+%h-base {
+	padding: 0.3rem 1rem;
+	font-family: $primary-font-family;
+	font-weight: $font-black;
+	text-transform: uppercase;
+	color: white;
+	background: black;
+	border: none;
+}
+
+.fate.character-sheet .window-content {
+	font-family: $primary-font-family;
+	overflow-y: scroll;
+	padding: 4px;
+	background: rgb(200, 200, 200);
+
+	form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tabs {
+		margin-bottom: 4px;
+		align-items: center;
+		font-weight: bold;
+		border-bottom: 2px solid black;
+
+		.item {
+			padding: 4px;
+
+			&:hover {
+				background: rgba(0, 0, 0, 0.1);
+			}
+
+			&.active {
+				background: rgba(0, 0, 0, 0.25);
+				text-shadow: none;
+				cursor: default;
+			}
+		}
+	}
+
+	.tab[data-tab].active {
+		flex: 1;
+		display: flex;
+	}
+
+	h1 {
+		@extend %h-base;
+		font-size: 1.2em;
+	}
+
+	h2 {
+		@extend %h-base;
+		padding: 0.3rem;
+		font-size: 1.1em;
+		background: #333;
+	}
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+	}
+
+	.main-sheet {
+		flex-direction: column;
+
+		& > * {
+			margin-bottom: 0.6rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.biography {
+		flex: 1;
+
+		.artwork {
+			margin-right: 0.7rem;
+
+			img {
+				width: 200px;
+				border: 2px solid black;
+				border-radius: 0;
+				cursor: pointer;
+
+				&.disabled {
+					cursor: default;
+				}
+			}
+		}
+
+		.text {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.editor {
+			flex: 1;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.2);
+			border: 1px solid black;
+		}
+	}
+
+	.item-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 0.4rem;
+		padding: 0.3rem 1rem;
+		color: white;
+		background: black;
+
+		h1 {
+			margin: 0;
+			padding: 0;
+			background: none;
+		}
+
+		.item-control {
+			font-weight: bold;
+		}
+	}
+
+	.sheet-group {
+		display: flex;
+
+		& > * {
+			margin-right: 1rem;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&.vertical {
+			flex-direction: column;
+
+			& > * {
+				margin-right: 0;
+				margin-bottom: 0.6rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		&.left {
+			flex: 1;
+		}
+
+		&.fill {
+			flex: 1;
+		}
+	}
+
+	.property {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-bottom: 0.2em;
+		padding: 0.2em;
+		border: 2px solid black;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 0.1em;
+			font-size: 0.8em;
+		}
+	}
+
+	.profile {
+		flex: 0 0 134px;
+		max-width: 134px;
+		height: 134px;
+		object-fit: contain;
+		border: 2px solid black;
+		border-radius: 0;
+	}
+
+	.identity {
+		flex: 1;
+	}
+
+	.consequences {
+		flex: 1;
+	}
+
+	.stunts {
+		flex: 1;
+	}
+
+	.refresh-boxes {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+
+		.property {
+			width: 5rem;
+			height: 5rem;
+
+			&:first-child {
+				margin: 0;
+				margin-right: 0.2em;
+			}
+		}
+
+		.property-input {
+			display: flex;
+			width: 100%;
+			height: initial;
+			font-weight: bold;
+			font-size: 2.9em;
+			text-align: center;
+		}
+	}
+
+	.approaches-list {
+		.approach-item {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			margin-bottom: 0.2em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		.property-label {
+			margin-right: 0.4em;
+			font-weight: bold;
+			text-align: right;
+		}
+	}
+
+	.stunts-list {
+		.item {
+			display: flex;
+			margin-bottom: 2px;
+			padding: 2px;
+			background: white;
+			border: 2px solid black;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.item-name {
+			flex: 1;
+
+			h4 {
+				margin: 0;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.stress-boxes {
+		display: flex;
+		flex-direction: column;
+
+		.stress-item {
+			display: flex;
+			margin-bottom: 0.2em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.stress-number {
+			width: 0.8em;
+			margin-right: 0.1em;
+			font-weight: $font-black;
+			font-size: 2em;
+			text-align: right;
+		}
+
+		.stress-box {
+			position: relative;
+			display: block;
+			width: 3em;
+			height: 3em;
+			border: 4px solid black;
+			cursor: pointer;
+
+			input[type=checkbox] {
+				position: absolute;
+				top: -999px;
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+
+			.fa-check {
+				position: absolute;
+				display: none;
+				font-size: 2.5em;
+			}
+
+			&:hover input ~ .fa-check {
+				display: block;
+				color: rgba(0, 0, 0, 0.25);
+			}
+
+			input:checked ~ .fa-check {
+				display: block;
+				color: black;
+			}
+
+			&.disabled {
+				cursor: default;
+
+				&:hover input:not(:checked) ~ .fa-check {
+					display: none;
+				}
+			}
+
+			// input:focus ~ .fa-check {
+			// 	color: red;
+			// }
+		}
+	}
+
+	.consequences-list {
+		.consequence {
+			display: flex;
+			margin-bottom: 0.2em;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.property {
+			flex: 1;
+
+			.property-label {
+				font-size: 0.7em;
+			}
+		}
+
+		.consequence-value {
+			width: 0.8em;
+			margin-right: 0.1em;
+			font-weight: $font-black;
+			font-size: 2em;
+			text-align: right;
+		}
+	}
+}
+
+.fate.item .window-content {
+	background: rgb(200, 200, 200);
+
+	form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tabs {
+		margin-bottom: 4px;
+		align-items: center;
+		font-weight: bold;
+		border-bottom: 2px solid black;
+
+		.item {
+			padding: 4px;
+
+			&:hover {
+				background: rgba(0, 0, 0, 0.1);
+			}
+
+			&.active {
+				background: rgba(0, 0, 0, 0.25);
+				text-shadow: none;
+				cursor: default;
+			}
+		}
+	}
+
+	.sheet-header {
+		margin-bottom: 0.5rem;
+
+		h1 input {
+			margin: 0;
+			width: 100%;
+		}
+	}
+
+	.sheet-content, .sheet-body, .tab {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.editor {
+		height: 100%;
+		background: rgba(255, 255, 255, 0.2);
+		border: 1px solid black;
+
+		.editor-content {
+			padding-left: 8px;
+		}
+	}
+}

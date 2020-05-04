@@ -1,0 +1,26 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<header class="sheet-header">
+		<h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"></h1>
+	</header>
+
+	<article class="sheet-content">
+		<section class="sheet-body">
+			<nav class="sheet-tabs tabs" data-tab-container="primary">
+				<a class="item active" data-tab="description">Description</a>
+				{{#if hasData}}
+				<a class="item" data-tab="data">Data</a>
+				{{/if}}
+			</nav>
+
+			<div class="tab item-description">
+				{{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+			</div>
+
+			{{#if hasData}}
+			<div class="tab item-details">
+				{{> (dataTemplate)}}
+			</div>
+			{{/if}}
+		</section>
+	</article>
+</form>
