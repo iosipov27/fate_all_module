@@ -1,3 +1,6 @@
+
+const CONFIG = require('./app_config.js');
+
 const gulp = require('gulp');
 const fs = require('fs-extra');
 const path = require('path');
@@ -13,7 +16,8 @@ const git = require('gulp-git');
 
 const argv = require('yargs').argv;
 
-const DIST = '../myfate';
+const DIST = CONFIG.DIST;
+const SRC = CONFIG.SRC;
 
 sass.compiler = require('sass');
 
@@ -32,8 +36,8 @@ function getConfig() {
 function getManifest() {
 	const json = {};
 
-	if (fs.existsSync('src')) {
-		json.root = 'src';
+	if (fs.existsSync(SRC)) {
+		json.root = SRC;
 	} else {
 		json.root = DIST;
 	}
@@ -139,7 +143,7 @@ const tsConfig = ts.createProject('tsconfig.json', {
  */
 function buildTS() {
 	return gulp
-		.src('src/**/*.ts')
+		.src(SRC + '/**/*.ts')
 		.pipe(tsConfig())
 		.pipe(gulp.dest(DIST));
 }
@@ -149,7 +153,7 @@ function buildTS() {
  */
 function buildLess() {
 	return gulp
-		.src('src/*.less')
+		.src(SRC + '/*.less')
 		.pipe(less())
 		.pipe(gulp.dest(DIST));
 }
@@ -159,7 +163,7 @@ function buildLess() {
  */
 function buildSASS() {
 	return gulp
-		.src('src/*.scss')
+		.src(SRC + '/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest(DIST));
 }
@@ -179,8 +183,8 @@ async function copyFiles() {
 	];
 	try {
 		for (const file of statics) {
-			if (fs.existsSync(path.join('src', file))) {
-				await fs.copy(path.join('src', file), path.join(DIST, file));
+			if (fs.existsSync(path.join(SRC, file))) {
+				await fs.copy(path.join(SRC, file), path.join(DIST, file));
 			}
 		}
 		return Promise.resolve();
@@ -193,11 +197,11 @@ async function copyFiles() {
  * Watch for changes for each build step
  */
 function buildWatch() {
-	gulp.watch('src/**/*.ts', { ignoreInitial: false }, buildTS);
-	gulp.watch('src/**/*.less', { ignoreInitial: false }, buildLess);
-	gulp.watch('src/**/*.scss', { ignoreInitial: false }, buildSASS);
+	gulp.watch(SRC + '/**/*.ts', { ignoreInitial: false }, buildTS);
+	gulp.watch(SRC + '/**/*.less', { ignoreInitial: false }, buildLess);
+	gulp.watch(SRC + '/**/*.scss', { ignoreInitial: false }, buildSASS);
 	gulp.watch(
-		['src/fonts', 'src/templates', 'src/*.json'],
+		[SRC + '/fonts', SRC + '/templates', SRC + '/*.json'],
 		{ ignoreInitial: false },
 		copyFiles
 	);
@@ -216,7 +220,7 @@ async function clean() {
 	const files = [];
 
 	// If the project uses TypeScript
-	if (fs.existsSync(path.join('src', `${name}.ts`))) {
+	if (fs.existsSync(path.join(SRC, `${name}.ts`))) {
 		files.push(
 			'lang',
 			'templates',
@@ -231,8 +235,8 @@ async function clean() {
 
 	// If the project uses Less or SASS
 	if (
-		fs.existsSync(path.join('src', `${name}.less`)) ||
-		fs.existsSync(path.join('src', `${name}.scss`))
+		fs.existsSync(path.join(SRC, `${name}.less`)) ||
+		fs.existsSync(path.join(SRC, `${name}.scss`))
 	) {
 		files.push('fonts', `${name}.css`);
 	}
@@ -266,12 +270,12 @@ async function linkUserData() {
 	try {
 		if (
 			fs.existsSync(path.resolve('.', DIST, 'module.json')) ||
-			fs.existsSync(path.resolve('.', 'src', 'module.json'))
+			fs.existsSync(path.resolve('.', SRC, 'module.json'))
 		) {
 			destDir = 'modules';
 		} else if (
 			fs.existsSync(path.resolve('.', DIST, 'system.json')) ||
-			fs.existsSync(path.resolve('.', 'src', 'system.json'))
+			fs.existsSync(path.resolve('.', SRC, 'system.json'))
 		) {
 			destDir = 'systems';
 		} else {
